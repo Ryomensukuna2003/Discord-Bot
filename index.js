@@ -1,6 +1,5 @@
-require("dotenv").config();
+require('dotenv').config();
 const { Client, GatewayIntentBits } = require("discord.js");
-const fetch = require("node-fetch");
 
 const client = new Client({
   intents: [
@@ -41,8 +40,6 @@ client.on("messageCreate", async (message) => {
 
       const result = await response.json();
       const shortLink = `https://url-shortner-9mrd.onrender.com/${result.id}`;
-
-      console.log(result);
       message.reply(`Shortened URL: ${shortLink}`);
     } catch (error) {
       console.error("Error:", error.message);
